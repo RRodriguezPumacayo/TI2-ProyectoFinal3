@@ -25,12 +25,12 @@ const BookDetails = () => {
         if(data){
           const {description, title, covers, subject_places, subject_times, subjects, key} = data;
           const newBook = {
-            description: description ? description.value : "No description found",
+            description: description ? description.value : "No se encontró descripción",
             title: title,
             cover_img: covers ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg` : coverImg,
-            subject_places: subject_places ? subject_places.join(", ") : "No subject places found",
-            subject_times : subject_times ? subject_times.join(", ") : "No subject times found",
-            subjects: subjects ? subjects.join(", ") : "No subjects found",
+            subject_places: subject_places ? subject_places.join(", ") : "No se encontraron lugares",
+            subject_times : subject_times ? subject_times.join(", ") : "No se encontraron periodos de tiempo",
+            subjects: subjects ? subjects.join(", ") : "No se encontraron temas",
             key: key ? key : null
           };
           setBook(newBook);
@@ -53,12 +53,12 @@ const BookDetails = () => {
       <div className='container'>
         <button type='button' className='flex flex-c back-btn' onClick={() => navigate("/book")}>
           <FaArrowLeft size = {22} />
-          <span className='fs-18 fw-6'>Go Back</span>
+          <span className='fs-18 fw-6'>Volver</span>
         </button>
 
         <div className='book-details-content grid'>
           <div className='book-details-img'>
-            <img src = {book?.cover_img} alt = "cover img" />
+            <img src = {book?.cover_img} alt = "Portada" />
           </div>
           <div className='book-details-info'>
             <div className='book-details-item title'>
@@ -68,30 +68,30 @@ const BookDetails = () => {
               <span>{book?.description}</span>
             </div>
             <div className='book-details-item'>
-              <span className='fw-6'>Subject Places: </span>
+              <span className='fw-6'>Lugares Temáticos: </span>
               <span className='text-italic'>{book?.subject_places}</span>
             </div>
             <div className='book-details-item'>
-              <span className='fw-6'>Subject Times: </span>
+              <span className='fw-6'>Peridos de tiempo: </span>
               <span className='text-italic'>{book?.subject_times}</span>
             </div>
             <div className='book-details-item'>
-              <span className='fw-6'>Subjects: </span>
+              <span className='fw-6'>Temas: </span>
               <span>{book?.subjects}</span>
             </div>
-            //
-            // link
+            
+            
             <div className='book-details-item'>
-              <span className='fw-6'>Link: </span>
+              <span className='fw-6'>Enlace: </span>
               <span>
                 {book?.key ? (
                   <a href={`https://openlibrary.org${book.key}`} target="_blank" rel="noopener noreferrer">
                     {`https://openlibrary.org${book.key}`}
                   </a>
-                ) : "No link found"}
+                ) : "Enlace no encontrado"}
               </span>
             </div>
-          /// dasdsadas
+          
           </div>
         </div>
       </div>
